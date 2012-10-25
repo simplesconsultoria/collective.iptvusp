@@ -1,0 +1,9 @@
+Changelog
+---------
+
+Because you have to know where your towel is.
+
+0.5 (unreleased)
+^^^^^^^^^^^^^^^^^^
+
+*  Initial release [ericof]
