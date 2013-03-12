@@ -1,12 +1,11 @@
 # -*- coding: utf-8 -*-
-from five import grok
-from plone.directives import dexterity, form
-from plone.z3cform.fieldsets.utils import move
 from collective.iptvusp.config import BASE_EMBED
 from collective.iptvusp.config import BASE_URL
 from collective.iptvusp.config import EMBED
-
 from collective.iptvusp.interfaces import IIPTVUSPLayer
+from five import grok
+from plone.directives import dexterity, form
+from plone.z3cform.fieldsets.utils import move
 
 
 grok.templatedir('templates')

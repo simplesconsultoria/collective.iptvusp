@@ -1,11 +1,8 @@
 # -*- coding: utf-8 -*-
-
+from collective.iptvusp import _
+from plone.app.registry.browser import controlpanel
 from zope import schema
 from zope.interface import Interface
-
-from plone.app.registry.browser import controlpanel
-
-from collective.iptvusp import _
 
 
 class IIPTVUSPSettings(Interface):
