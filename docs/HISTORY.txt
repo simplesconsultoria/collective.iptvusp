@@ -3,7 +3,7 @@ Changelog
 
 Because you have to know where your towel is.
 
-0.1a2 (unreleased)
+0.1a2 (2013-03-12)
 ^^^^^^^^^^^^^^^^^^
 
 - Nothing changed yet.
