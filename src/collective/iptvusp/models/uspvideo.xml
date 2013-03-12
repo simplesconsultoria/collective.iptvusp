@@ -5,20 +5,54 @@
        i18n:domain="collective.iptvusp">
 
   <schema>
-    <field name="remote_url" type="zope.schema.TextLine">
+    <field name="remote_url"
+           form:before="IDublinCore.title"
+           type="zope.schema.TextLine">
       <title i18n:translate="">Address</title>
       <description i18n:translate="">Address to the video</description>
     </field>
-    <field name="duracao" type="zope.schema.TextLine">
-      <title i18n:translate="">Lenght</title>
-      <description i18n:translate="">Video lenght in minutes</description>
+    <field name="IDublinCore.contributors"
+           type="zope.schema.Tuple"
+           form:widget="z3c.form.browser.textlines.TextLinesFieldWidget"
+           form:after="IDublinCore.description">
+      <title i18n:translate="">Participantes</title>
+      <description i18n:translate="">Participantes deste video (Informar um por linha)</description>
+      <required>False</required>
+      <value_type type="zope.schema.TextLine">
+      </value_type>
     </field>
-     <fieldset name="layout" label="Layout" description="Layout">
+    <field name="IDublinCore.rights"
+           type="zope.schema.Text"
+           form:after="IDublinCore.contributors">
+      <title i18n:translate="">Organização</title>
+      <description i18n:translate="">Organização do vídeo</description>
+      <required>False</required>
+    </field>
+    <field name="IDublinCore.effective"
+           type="zope.schema.Datetime"
+           form:after="IDublinCore.rights">
+      <title i18n:translate="">Data</title>
+      <description i18n:translate="">Data deste vídeo</description>
+    </field>
+    <field name="location"
+           form:after="IDublinCore.effective"
+           type="zope.schema.TextLine">
+      <title i18n:translate="">Local</title>
+      <description i18n:translate="">Local de gravação do vídeo.</description>
+      <default>Sala de Eventos do IEA</default>
+      <required>False</required>
+    </field>
+    <field name="duracao" type="zope.schema.TextLine">
+      <title i18n:translate="">Duração</title>
+      <description i18n:translate="">Duração do vídeo. Exemplo: 2h e 30min.</description>
+    </field>
+    <fieldset name="layout" label="Layout">
         <field name="width" type="zope.schema.Int">
           <title i18n:translate="">Width</title>
           <description i18n:translate="">Video Width</description>
           <required>True</required>
           <default>663</default>
+          <max_length>4</max_length>
         </field>
         <field name="height" type="zope.schema.Int">
           <title i18n:translate="">Height</title>
@@ -26,6 +60,12 @@
           <required>True</required>
           <default>376</default>
         </field>
+        <field name="image" type="plone.namedfile.field.NamedImage">
+          <description>Imagem para listagens</description>
+          <title>Image</title>
+          <required>False</required>
+          <max_length>4</max_length>
+        </field>     
     </fieldset>
   </schema>
 </model>
