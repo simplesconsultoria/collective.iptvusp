@@ -10,7 +10,7 @@ from plone.app.testing import setRoles
 from plone.dexterity.interfaces import IDexterityFTI
 from plone.app.dexterity.behaviors.exclfromnav import IExcludeFromNavigation
 
-from iptv.uspvideo import IUSPVideo
+from collective.iptvusp.content import IUSPVideo
 from collective.iptvusp.testing import INTEGRATION_TESTING
 
 
@@ -24,7 +24,7 @@ class CoverIntegrationTestCase(unittest.TestCase):
         self.portal.invokeFactory('Folder', 'test-folder')
         setRoles(self.portal, TEST_USER_ID, ['Member'])
         self.folder = self.portal['test-folder']
-        self.folder.invokeFactory('iptv.uspvideo', 'c1',
+        self.folder.invokeFactory('iptvusp.uspvideo', 'c1',
                                   template_layout='Layout A')
         self.c1 = self.folder['c1']
 
@@ -33,18 +33,18 @@ class CoverIntegrationTestCase(unittest.TestCase):
 
     def test_fti(self):
         fti = queryUtility(IDexterityFTI,
-                           name='iptv.uspvideo')
+                           name='iptvusp.uspvideo')
         self.assertNotEqual(None, fti)
 
     def test_schema(self):
         fti = queryUtility(IDexterityFTI,
-                           name='iptv.uspvideo')
+                           name='iptvusp.uspvideo')
         schema = fti.lookupSchema()
         self.assertEqual(IUSPVideo, schema)
 
     def test_factory(self):
         fti = queryUtility(IDexterityFTI,
-                           name='iptv.uspvideo')
+                           name='iptvusp.uspvideo')
         factory = fti.factory
         new_object = createObject(factory)
         self.assertTrue(IUSPVideo.providedBy(new_object))
