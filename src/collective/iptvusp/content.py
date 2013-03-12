@@ -30,6 +30,20 @@ class USPVideo(dexterity.Item):
     """
     grok.implements(IUSPVideo)
 
+    def image_thumb(self):
+        ''' Return a thumbnail '''
+        view = self.unrestrictedTraverse('@@images')
+        return view.scale(fieldname='image',
+                          scale='thumb').index_html()
+
+    def tag(self, scale='thumb', css_class='tileImage', **kw):
+        ''' Return a tag to the image '''
+        view = self.unrestrictedTraverse('@@images')
+        return view.tag(fieldname='image',
+                        scale=scale,
+                        css_class=css_class,
+                        **kw)
+
 
 class View(grok.View):
     grok.context(IUSPVideo)
