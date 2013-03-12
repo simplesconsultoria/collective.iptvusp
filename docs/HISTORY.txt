@@ -3,6 +3,12 @@ Changelog
 
 Because you have to know where your towel is.
 
+0.1a3 (unreleased)
+^^^^^^^^^^^^^^^^^^
+
+- Nothing changed yet.
+
+
 0.1a2 (2013-03-12)
 ^^^^^^^^^^^^^^^^^^
 
